@@ -1,6 +1,6 @@
 # Integral_A
 
-Este proyecto es un programa para el manejo de libros de una suppuesta libreria, en donde se pueden ordenar por número de paginas, se pueden agregar mas libros y eliminar dichos libros,dichos libros estan almacenados en un arreglo dentro de una clase.
+Este proyecto es un programa para el manejo de libros de una suppuesta libreria, en donde se pueden ordenar por número de paginas, se pueden agregar mas libros y eliminar dichos libros,dichos libros estan almacenados en un arreglo dentro de una clase. Tambien cada libro cuenta con sus tags, categorias a las que pertenece, que estan acomodados en ordenamientos lineales
 
 # SICT0302B: Toma decisiones
 
