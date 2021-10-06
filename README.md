@@ -7,3 +7,7 @@ Este proyecto es un programa para el manejo de libros de una suppuesta libreria,
 Selecciona un algoritmo de ordenamiento adecuado al problema
 
 Para este avance, presentacion opte por un acercamiento mas sencillo siendo este el bubble Sort por el hecho de que queria compararlo con todos y por que estoy manejando una base de datos pequeña y se me hizo mas sencillo de manejar por los valores y la forma en la que plantee mi programa
+
+Selecciona y usa una estructura lineal adecuada al problema
+
+Para este problema usa un ordenamiento de lista para almacenar, consultar y añadir los tags pertenecientes a cada libro
