@@ -45,7 +45,7 @@ void arreglararray(vector <T> &v,Libro oc1[],int x){
 /*
  * agregar_libro
  * Un ciclo en el cual dependiendo del usuario
- * se van agregando libros, con nombre y numero de paginas
+ * se van agregando libros, con nombre y numero de paginas, y sus categorias
  * @param Libro, int:tamaño del arreglo 
  * @return int:nuevo tamaño del arreglo
 */
@@ -58,7 +58,16 @@ int agregar_libro(Libro oc[],int y){
      for(int i=y; i < z; i++){ 
          oc[i].set_name();
          oc[i].set_pages();
-         //oc[i].set_categoria();
+         cout<<"Cuantas categorias agregaras? (Numero)";
+         int num;
+         cin>>num;
+         cout<<"A que categoria pertenece ej:Accion,Magia,Terror";
+         string cats[num];
+        for(int j=0;j<num;j++){
+            cout<<"Escribe:";
+            cin>>cats[j];
+        }
+         oc[i].set_categoria(cats,num);
      }
     
     return z;
@@ -96,21 +105,41 @@ int eliminar_libro(Libro oc[],int y){
         } 
 return y;
 }
+
+/*
+ * categoria
+ * Busca entre los libros la categoria deseada  
+ * @param  Libro, tamaño de los objetos
+ * @return
+*/
+void categoria(Libro oc[],int y){
+    cout<<"Escoge categoria (Escribe el nombre)\n";
+    cout<<"Fantasia,Misterio,Magia,Adolescentes,Mitologia,Ficcion,Accion,Aventura,Novela,Religion,Thriller";
+    string x;
+    cin>>x;
+    cout<<"Libros con dicha categoria:\n";
+    for(int i=0;i<y;i++){
+        oc[i].searching(x);
+    }
+
+}
 /*
  * catalogo
- * menu donde se imprime e ordena por numero de paginas los libros 
+ * menu donde se imprime e ordena por numero de paginas los libros, y puedes buscar por categorias 
  * @param Libro, int:tamaño 
  * @return
 */
 void catalogo(Libro oc[],int y){
     int flag=0;
     while (flag==0){
-        cout<<"Welcome to Catalog\n Que desea hacer? \n 1.-Imprimir libros \n 2.-Ordenar por paginas \n 3.-Salir del Catalogo \n";
+        cout<<"Welcome to Catalog\n Que desea hacer? \n 1.-Imprimir libros \n 2.-Ordenar por paginas \n 3.-Buscar por categoria \n 4.-Salir del Catalogo \n";
        int x;
        cin>>x;
        if (x==1){
             for (int i=0;i<y;i++){
-            cout<<i+1<<".-"<<oc[i].get_name()<<" pages: "<<oc[i].get_pages()<<"\n";
+            cout<<i+1<<".-"<<oc[i].get_name()<<" pages: "<<oc[i].get_pages()<<"\n"<<"Tags: "<<"\n";
+            oc[i].get_categoria();
+            cout<<"\n";
             }
        }else if (x==2){
            int arr[y+1];
@@ -121,7 +150,9 @@ void catalogo(Libro oc[],int y){
         Sorts <int> sorts;
         sorts.ordenaBurbuja(original1);
         arreglararray(original1,oc,y);
-       }else if(x==3){
+       }else if (x==3){
+           categoria(oc,y);
+       }else if(x==4){
            flag=1;
        }else{
            cout<< "Opcion Invalidad,ingrese nuevamente";
@@ -138,17 +169,34 @@ void catalogo(Libro oc[],int y){
 int inicializar(Libro oc[],int y){
      oc[0].set_names("HarryPotter");
      oc[0].set_paginas(223);
+     string cats0[4]={"Fantasia","Magia","Adolescentes",};
+     oc[0].set_categoria(cats0,4);
+    
      oc[1].set_names("PercyJackson");
      oc[1].set_paginas(377);
+     string cats1[4]={"Fantasia","Magia","Adolescentes","Mitologia"};
+     oc[1].set_categoria(cats1,4);
+
      oc[2].set_names("HungerGames");
      oc[2].set_paginas(374);
+     string cats2[3]={"Ficcion","Adolescentes","Accion"};
+     oc[2].set_categoria(cats2,3);
+
      oc[3].set_names("ElSalvaje");
      oc[3].set_paginas(696);
+     string cats3[3]={"Ficcion","Novela","Aventura"};
+     oc[3].set_categoria(cats3,3);
+
      oc[4].set_names("Bible");
      oc[4].set_paginas(1200);
+     string cats4[1]={"Religion"};
+     oc[4].set_categoria(cats4,1);
+
      oc[5].set_names("TheAnalyst");
      oc[5].set_paginas(521);
-     
+     string cats5[3]={"Ficcion","Thriller","Magia"};
+     oc[5].set_categoria(cats5,3);
+    
      
 return y;
 }
