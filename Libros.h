@@ -32,6 +32,7 @@ class Libro {
         string name;
         int pages;
         string categoria[2];
+        List<string> cats;
     public:
     //Constructores
         Libro(string nombre,int paginas):name(nombre),pages(paginas){};
@@ -40,11 +41,12 @@ class Libro {
         string get_name();  
         int get_pages();
         void get_categoria();
-        void set_categoria();
+        void set_categoria(string cat[],int y);
         void set_name();
         void set_pages();
         void set_names(string);
         void set_paginas(int);
+        void searching(string);
 
 };
 /*
@@ -98,40 +100,26 @@ string Libro::get_name(){
 */
 int Libro::get_pages(){
     return pages;
-}/*
-void Libro::get_categoria(){
-    vector <string> original2 (categoria,categoria + sizeof(categoria)/ sizeof(int));
-    //cout<<arrayToString(original2);
 }
-void Libro::set_categoria(){
-    cout<<"A que categorias pertenece el libro";
-    cout<< "\n 1.-Fantasia, 2.-Terror, 3.-Sobrenatural";
-    cout<<"4.-Aventura,5.-Romance,6.-Misterio \n";
-    for (int i=0;i<10;i++){
-        cout<<"Ingrese el numero correspondiente:";
-        int x;
-        cin>>x;
-         if (x==1){
-           categoria[i]="Fantasia";
-       }else if (x==2){
-           categoria[i]="Terror";
-       }else if(x==3){
-           categoria[i]="Sobrenatural";
-       }else if (x==4){
-           categoria[i]="Aventura";
-       }else if (x==5){
-           categoria[i]="Romance";
-       }else if (x==6){
-           categoria[i]="Misterio";
-       }else{
-           cout<< "Opcion Invalidad,ingrese nuevamente";
-       }
-        cout<<"Agregar una categoria mas? \n 1.-Si 2.-No";
-        cin>>x;
-        if (x==2){
-            break;
-        }
+
+void Libro::get_categoria(){
+    string x;
+    x=cats.toString();
+    cout<<x;
+}
+void Libro::set_categoria(string cat[],int y){ //tamaño y
+    string x;
+    for (int i=0;i<y;i++){
+        x=cat[i];
+        cats.insertion(x);
     }
 }
-*/
+
+void Libro::searching(string cat){
+    int x=cats.search(cat);
+    if (x !=-1){
+        cout<<name<<"\n";
+    }
+}
+
 #endif
