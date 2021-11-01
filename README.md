@@ -11,3 +11,8 @@ Para este avance, presentacion opte por un acercamiento mas sencillo siendo este
 Selecciona y usa una estructura lineal adecuada al problema
 
 Para este problema usa un ordenamiento de lista para almacenar las categorias de cada libro en diferentes nodos, para que cuando se seleccione buscar por categorias, se puede buscar facilmente los libros que contengan dicha categorias. Tambien se cuenta con la funcion para que cuando se agreguen nuevos libros se agreguen su respectiva lista de categorias. 
+
+Usa un árbol adecuado para resolver un problema
+
+Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es decir que si Harry Potter tiene 10 copias y Los Juegos del Hmabre son 20,se van almacenando en este arbol por orden para poder saber cuales tienen mas copias y cuales estaran por terminarse 
+
