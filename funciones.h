@@ -234,4 +234,253 @@ int List<T>::deleteAt(int pos){
 
 }
 
+////////////////////////////
+
+template <class T> class BST;
+
+template <class T>
+class Node {
+private:
+	T value;
+	Node *left, *right;
+    int level,balance;
+	Node<T>* succesor();
+
+public:
+	Node(T);
+	Node(T, Node<T>*, Node<T>*,int);
+	void add(T);
+	bool find(T);
+	void remove(T);
+	void removeChilds();
+	void inorder(std::stringstream&) const;
+};
+template <class T>
+Node<T>::Node(T val) : value(val), left(0), right(0),level(0) {}
+
+template <class T>
+Node<T>::Node(T val, Node<T> *le, Node<T> *ri,int lev)
+	: value(val), left(le), right(ri), level(lev) {}
+
+template <class T>
+void Node<T>::add(T val) {
+	if (val < value) {
+		if (left != 0) {
+			left->add(val);
+		} else {
+			left = new Node<T>(val);
+		}
+	} else {
+		if (right != 0) {
+			right->add(val);
+		} else {
+			right = new Node<T>(val);
+		}
+	}
+}
+
+template <class T>
+bool Node<T>::find(T val) {
+	if (val == value) {
+		return true;
+	} else if (val < value) {
+		return (left != 0 && left->find(val));
+	} else if (val > value) {
+		return (right != 0 && right->find(val));
+	}
+}
+
+template <class T>
+Node<T>* Node<T>::succesor() {
+	Node<T> *le, *ri;
+
+	le = left;
+	ri = right;
+
+	if (left == 0) {
+		if (right != 0) {
+			right = 0;
+		}
+		return ri;
+	}
+
+	if (left->right == 0) {
+		left = left->left;
+		le->left = 0;
+		return le;
+	}
+
+	Node<T> *parent, *child;
+	parent = left;
+	child = left->right;
+	while (child->right != 0) {
+		parent = child;
+		child = child->right;
+	}
+	parent->right = child->left;
+	child->left = 0;
+	return child;
+}
+
+template <class T>
+void Node<T>::remove(T val) {
+	Node<T> * succ, *old;
+
+	if (val < value) {
+		if (left != 0) {
+			if (left->value == val) {
+				old = left;
+				succ = left->succesor();
+				if (succ != 0) {
+					succ->left = old->left;
+					succ->right = old->right;
+				}
+				left = succ;
+				delete old;
+			} else {
+				left->remove(val);
+			}
+		}
+	} else if (val > value) {
+		if (right != 0) {
+			if (right->value == val) {
+				old = right;
+				succ = right->succesor();
+				if (succ != 0) {
+					succ->left = old->left;
+					succ->right = old->right;
+				}
+				right = succ;
+				delete old;
+			} else {
+				right->remove(val);
+			}
+		}
+	}
+}
+
+template <class T>
+void Node<T>::removeChilds() {
+	if (left != 0) {
+		left->removeChilds();
+		delete left;
+		left = 0;
+	}
+	if (right != 0) {
+		right->removeChilds();
+		delete right;
+		right = 0;
+	}
+}
+
+template <class T>
+void Node<T>::inorder(std::stringstream &aux) const {
+	if (left != 0) {
+		left->inorder(aux);
+	}
+	if (aux.tellp() != 1) {
+		//aux << " ";
+	}
+	aux << value;
+	if (right != 0) {
+		right->inorder(aux);
+	}
+}
+
+////////////////
+
+template <class T>
+class BST {
+private:
+	Node<T> *root;
+
+public:
+	BST();
+	~BST();
+	bool empty() const;
+	void add(T);
+	bool find(T) const;
+	void remove(T);
+	void removeAll();
+	int* inorder() const;
+};
+
+template <class T>
+BST<T>::BST() : root(0) {}
+
+template <class T>
+BST<T>::~BST() {
+	removeAll();
+}
+
+template <class T>
+bool BST<T>::empty() const {
+	return (root == 0);
+}
+template <class T>
+void BST<T>::remove(T val) {
+	if (root != 0) {
+		if (val == root->value) {
+			Node<T> *succ = root->succesor();
+			if (succ != 0) {
+				succ->left = root->left;
+				succ->right = root->right;
+			}
+			delete root;
+			root = succ;
+		} else {
+			root->remove(val);
+		}
+	}
+}
+
+template <class T>
+void BST<T>::removeAll() {
+	if (root != 0) {
+		root->removeChilds();
+	}
+	delete root;
+	root = 0;
+}
+
+template<class T>
+void BST<T>::add(T val) {
+	if (root != 0) {
+		if (!root->find(val)) {
+			root->add(val);
+		}
+	} else {
+		root = new Node<T>(val);
+	}
+}
+
+template <class T>
+bool BST<T>::find(T val) const {
+	if (root != 0) {
+		return root->find(val);
+	} else {
+		return false;
+	}
+}
+
+template <class T>
+int* BST<T>::inorder() const {
+	std::stringstream aux;
+
+	//aux << "[";
+	if (!empty()) {
+		root->inorder(aux);
+	}
+	//aux << "]";
+	
+	char c;
+	int i=0;
+	static int lol[100];
+	while (aux.get(c)){
+		//cout<<(int)c-48;
+		lol[i]=(int)c-48;
+		i=i+1;
+	}
+	return lol;
+}
 #endif
