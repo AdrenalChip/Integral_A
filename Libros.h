@@ -33,10 +33,12 @@ class Libro {
         int pages;
         string categoria[2];
         List<string> cats;
+        int cantidad;
     public:
     //Constructores
-        Libro(string nombre,int paginas):name(nombre),pages(paginas){};
+        Libro(string nombre,int paginas,int cants):name(nombre),pages(paginas),cantidad(cants){};
         Libro():name("-"),pages(0){};
+        Libro(string nombre,int paginas):name(nombre),pages(paginas),cantidad(1){};
     //Declaracion de funciones    
         string get_name();  
         int get_pages();
@@ -47,6 +49,9 @@ class Libro {
         void set_names(string);
         void set_paginas(int);
         void searching(string);
+        void set_cantidad();
+        int get_cantidad();
+        void set_cantidads(int);
 
 };
 /*
@@ -57,7 +62,20 @@ class Libro {
 void Libro::set_paginas(int paginas){
     pages=paginas;
 }
-
+/*
+ *set_cantidad
+ *@param
+ *return
+*/
+void Libro::set_cantidad(){
+    cout<<"Cuantas copias de este libro?";
+    int x;
+    cin>>x;
+    cantidad=cantidad+x;
+}
+void Libro::set_cantidads(int cantidads){
+    cantidad=cantidads;
+}
 /*
  * set_names  
  * @param string:nombre
@@ -102,11 +120,16 @@ int Libro::get_pages(){
     return pages;
 }
 
+int Libro::get_cantidad(){
+    return cantidad;
+}
+
 void Libro::get_categoria(){
     string x;
     x=cats.toString();
     cout<<x;
 }
+
 void Libro::set_categoria(string cat[],int y){ //tamaño y
     string x;
     for (int i=0;i<y;i++){
