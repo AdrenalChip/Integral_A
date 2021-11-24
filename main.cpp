@@ -124,6 +124,43 @@ void categoria(Libro oc[],int y){
     }
 
 }
+
+
+int cantidad_tree(Libro oc[],int y){
+    BST<int> bst;
+    //generate bst
+    int max=oc[0].get_cantidad();
+    int ct=oc[0].get_cantidad();
+    for (int i=0;i<y;i++){
+        if (max<oc[i].get_cantidad()){
+            max=oc[i].get_cantidad();
+        }else if (max>oc[i].get_cantidad()){
+        }
+        ct=oc[i].get_cantidad();
+        bst.add(ct);
+        }
+    bool x=bst.find(max);
+    if (x){
+        for (int i=0;i<y;i++){
+            if (max==oc[i].get_cantidad()){
+                cout<<"The books with more copies is "<<oc[i].get_name()<<"\n";
+            }
+        }
+    }
+    int *orden;
+    orden=bst.inorder();
+    cout<<"Orden de menor a mayor cantidad ";
+    for (int i=0;i<y;i++){
+        for (int j=0;j<y;j++){
+            if (oc[j].get_cantidad()==*(orden+i)){
+                cout<<oc[j].get_name()<<": ";
+            }
+        }
+        cout<<*(orden+i)<<" ";
+    }
+    return y;
+}
+
 /*
  * catalogo
  * menu donde se imprime e ordena por numero de paginas los libros, y puedes buscar por categorias 
@@ -163,40 +200,6 @@ void catalogo(Libro oc[],int y){
    }
 }
 
-int cantidad_tree(Libro oc[],int y){
-    BST<int> bst;
-    //generate bst
-    int max=oc[0].get_cantidad();
-    int ct=oc[0].get_cantidad();
-    for (int i=0;i<y;i++){
-        if (max<oc[i].get_cantidad()){
-            max=oc[i].get_cantidad();
-        }else if (max>oc[i].get_cantidad()){
-        }
-        ct=oc[i].get_cantidad();
-        bst.add(ct);
-        }
-    bool x=bst.find(max);
-    if (x){
-        for (int i=0;i<y;i++){
-            if (max==oc[i].get_cantidad()){
-                cout<<"The books with more copies is "<<oc[i].get_name()<<"\n";
-            }
-        }
-    }
-    int *orden;
-    orden=bst.inorder();
-    cout<<"Orden de menor a mayor cantidad ";
-    for (int i=0;i<y;i++){
-        for (int j=0;j<y;j++){
-            if (oc[j].get_cantidad()==*(orden+i)){
-                cout<<oc[j].get_name()<<" ";
-            }
-        }
-        cout<<*(orden+i);
-    }
-    return y;
-}
 
 /*
  * inicializar
@@ -208,7 +211,7 @@ int cantidad_tree(Libro oc[],int y){
 int inicializar(Libro oc[],int y){
      oc[0].set_names("HarryPotter");
      oc[0].set_paginas(223);
-     oc[0].set_cantidads(10);
+     oc[0].set_cantidads(1);
      string cats0[4]={"Fantasia","Magia","Adolescentes",};
      oc[0].set_categoria(cats0,4);
     
