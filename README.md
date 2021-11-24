@@ -16,3 +16,7 @@ Usa un árbol adecuado para resolver un problema
 
 Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es decir que si Harry Potter tiene 10 copias y Los Juegos del Hmabre son 20,se van almacenando en este arbol por orden para poder saber cuales tienen mas copias y cuales estaran por terminarse 
 
+
+# Correciones:
+
+-El arbol ya funciona, estaba mal acomodado
