@@ -48,7 +48,7 @@ class Libro {
         void set_pages();
         void set_names(string);
         void set_paginas(int);
-        void searching(string);
+        string searching(string);
         void set_cantidad();
         int get_cantidad();
         void set_cantidads(int);
@@ -138,11 +138,13 @@ void Libro::set_categoria(string cat[],int y){ //tamaño y
     }
 }
 
-void Libro::searching(string cat){
+string Libro::searching(string cat){
+    stringstream aux;
     int x=cats.search(cat);
     if (x !=-1){
-        cout<<name<<"\n";
+        aux<<name<<"\n";
     }
+    return aux.str();
 }
 
 #endif
