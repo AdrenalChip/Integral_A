@@ -2,6 +2,10 @@
 #include <iostream>
 #include "Libros.h"
 #include "funciones.h"
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -14,19 +18,22 @@ using namespace std;
  * @return
 */
 template <class T>
-void arreglararray(vector <T> &v,Libro oc1[],int x){
+string arreglararray(vector <T> &v,Libro oc1[],int x){
+    stringstream aux1;
     string aux[v.size()];
-    for(int i=0; i<x; i++){
+    for(int i=0; i<x+1;i++){
 		for(int j=0; j<x; j++){
             if (v[i]==oc1[j].get_pages()){
                 aux[i]=oc1[j].get_name();
-                cout<<i+1<<"-"<<aux[i]<<"\n";
+                aux1<<i<<"-"<<aux[i]<<"\n";
                 }
         }
     }
+    return aux1.str();
 }
 
-int cantidad_tree(Libro oc[],int y){
+string cantidad_tree(Libro oc[],int y){
+    stringstream aux;
     BST<int> bst;
     //generate bst
     int max=oc[0].get_cantidad();
@@ -38,7 +45,7 @@ int cantidad_tree(Libro oc[],int y){
         }
         ct=oc[i].get_cantidad();
         bst.add(ct);
-        }
+        }/*
     bool x=bst.find(max);
     if (x){
         for (int i=0;i<y;i++){
@@ -46,19 +53,19 @@ int cantidad_tree(Libro oc[],int y){
                 cout<<"The books with more copies is "<<oc[i].get_name()<<"\n";
             }
         }
-    }
+    }*/
     int *orden;
     orden=bst.inorder();
-    cout<<"Orden de menor a mayor cantidad ";
+    
     for (int i=0;i<y;i++){
         for (int j=0;j<y;j++){
             if (oc[j].get_cantidad()==*(orden+i)){
-                cout<<oc[j].get_name()<<": ";
+                aux<<oc[j].get_name()<<": ";
             }
         }
-        cout<<*(orden+i)<<" ";
+        aux<<*(orden+i)<<" ";
     }
-    return y;
+    return aux.str();
 }
 
 /*
