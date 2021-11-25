@@ -131,9 +131,9 @@ void catalogo(Libro oc[],int y){
         vector<int> original1 (arr, arr + sizeof(arr) / sizeof(int) );
         Sorts <int> sorts;
         sorts.ordenaBurbuja(original1);
-        arreglararray(original1,oc,y);
+        cout<<arreglararray(original1,oc,y);
        }else if (x==3){
-           int x=cantidad_tree(oc,y);
+           cout<<cantidad_tree(oc,y);
         }else if (x==4){
            categoria(oc,y);
        }else if(x==5){
@@ -167,8 +167,6 @@ int main(){
            tamano=agregar_libro(oc,tamano);
        }else if(x==3){
            tamano=eliminar_libro(oc,tamano);
-       }else if (x==4){
-           tamano=cantidad_tree(oc,tamano);
        }else if (x==4){
         flag=1;
        }else{
