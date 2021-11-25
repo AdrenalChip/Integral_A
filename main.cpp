@@ -100,7 +100,7 @@ void categoria(Libro oc[],int y){
     cin>>x;
     cout<<"Libros con dicha categoria:\n";
     for(int i=0;i<y;i++){
-        oc[i].searching(x);
+        cout<<oc[i].searching(x);
     }
 
 }
