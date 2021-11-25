@@ -56,4 +56,14 @@ int main(){
     cout << "\n" <<"Esperada:\n" << ansbook << "\nPrograma:\n" << books.str() << "\n";
     cout <<	(!ansbook.compare(books.str()) ? "success\n" : "fail\n");
     
+    ///ADJACENCY LIST
+    string x="Fantasia";
+    stringstream cats;
+    for(int i=0;i<tamano;i++){
+        cats<<oc[i].searching(x);
+    }
+    string anscats="HarryPotter\nPercyJackson\n";
+    cout << "\n" <<"Esperada:\n" << anscats << "\nPrograma:\n" << cats.str() << "\n";
+    cout <<	(!anscats.compare(cats.str()) ? "success\n" : "fail\n");
+    
 }
