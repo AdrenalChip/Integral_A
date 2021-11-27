@@ -19,4 +19,5 @@ Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es deci
 
 # Correciones:
 
--El arbol ya funciona, estaba mal acomodado
+-El arbol ya funciona, estaba mal organizado en el main.cpp
+-Se incluyo casos de pruebas
