@@ -1,3 +1,11 @@
+/*
+ *Proyecto Integral A
+ *Funciones Extra
+ *Jorge Guerrero Díaz
+ *A01411752
+ *20/09/2021
+*/
+
 #include <vector>
 #include <iostream>
 #include "Libros.h"
