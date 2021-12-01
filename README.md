@@ -21,22 +21,34 @@ Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es deci
 
 * Existe un .cpp llamado casosdeprueba en donde estan presentes los casos de prueba, las funciones y procedimientos que hace el programa y nos muestra si cumple o no con dicha prueba.
 
-* Bubble Sort() // se usa
-   swap() // se usa
-   
-* BST Tree
-  add() ///se usa
-  inorder() ///se usa
+* Bubble Sort() : Dos ciclos anidados por lo que O(n^2) es la complejidad.
   
 * Link List
-  insertion() /// se usa 
-  addfirst() /// se usa
-  search()  //// se usa
+
+  #insertion
   
-* Nodes 
-  add() // se usa 
-  find() //se usa
-  inorder() //se usa
+O(n) siempre recorre hasta el ultimo link para agregarlo.
+
+  #search
+  
+O(n) En el peor de los casos no está y habrá recorrido los n elementos de la lista.
+
+     
+* BST Tree
+
+  #inorder
+  
+ Pasa por cada uno de los nodos, por lo que es O(n)
+  #search
+  
+  Por la estrcutura de un BST, en donde el lado izquiero es menor y el lado derecho mayor, al buscar un numero siempre tomara un camino u otro por lo que no recorre todo los nodos y su complejidad es O(log(n))
+  
+  #insertion
+  
+  O(log(n))
+  
+
+
 
 * Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes., se espera documentación limpia y clara de cada función del programa, asi como de los metodos de acceso a la estrcutura y operaciones como inserción, búsqueda, borrado que se estén usando. Este análisis se debe presentar en el .readme del repositorio. Recuerda que el readme se escribe en markdown
 
