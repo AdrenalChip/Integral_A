@@ -17,7 +17,15 @@ Usa un árbol adecuado para resolver un problema
 Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es decir que si Harry Potter tiene 10 copias y Los Juegos del Hmabre son 20,se van almacenando en este arbol por orden para poder saber cuales tienen mas copias y cuales estaran por terminarse 
 
 
+# SICT0301B: Evalúa los componentes
+
+* Existe un .cpp 
+
+* Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes., se espera documentación limpia y clara de cada función del programa, asi como de los metodos de acceso a la estrcutura y operaciones como inserción, búsqueda, borrado que se estén usando. Este análisis se debe presentar en el .readme del repositorio. Recuerda que el readme se escribe en markdown
+
+
 # Correciones:
 
 -El arbol ya funciona, estaba mal organizado en el main.cpp
+
 -Se incluyo casos de pruebas
