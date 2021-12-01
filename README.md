@@ -19,7 +19,7 @@ Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es deci
 
 # SICT0301B: Evalúa los componentes
 
-* Existe un .cpp 
+* Existe un .cpp llamado casosdeprueba en donde estan presentes los casos de prueba, las funciones y procedimientos que hace el programa y nos muestra si cumple o no con dicha prueba.
 
 * Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes., se espera documentación limpia y clara de cada función del programa, asi como de los metodos de acceso a la estrcutura y operaciones como inserción, búsqueda, borrado que se estén usando. Este análisis se debe presentar en el .readme del repositorio. Recuerda que el readme se escribe en markdown
 
@@ -28,4 +28,4 @@ Usando un arbol BST almacenamos la cantidad de libros que hay por libro, es deci
 
 -El arbol ya funciona, estaba mal organizado en el main.cpp
 
--Se incluyo casos de pruebas
+-Se incluyo competencia SICT0301B
