@@ -42,7 +42,7 @@ int agregar_libro(Libro oc[],int y){
          cout<<"Cuantas categorias agregaras? (Numero)";
          int num;
          cin>>num;
-         cout<<"A que categoria pertenece ej:Accion,Magia,Terror";
+         cout<<"A que categoria pertenece ej:Accion,Magia,Terror\n";
          string cats[num];
         for(int j=0;j<num;j++){
             cout<<"Escribe:";
