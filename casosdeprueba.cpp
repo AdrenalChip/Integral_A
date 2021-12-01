@@ -1,3 +1,11 @@
+/*
+ *Proyecto Integral A
+ *Caso de Pruebas 
+ *Jorge Guerrero Díaz
+ *A01411752
+ *20/09/2021
+*/
+
 #include <iostream>
 #include "Libros.h"
 #include "funciones.h"
